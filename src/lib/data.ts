@@ -9,7 +9,9 @@ export const products: Product[] = [
     image: "/lovable-uploads/d7225aff-c7a7-473e-9981-70c0d4f5ddd5.png",
     description: "GORE-TEX tehnologija štiti od elemenata, a istovremeno omogućava tijelu da diše",
     brand: "Adidas",
-    sizes: ["40", "41", "42", "43", "44", "45"]
+    sizes: ["40", "41", "42", "43", "44", "45"],
+    material: "goretex",
+    purpose: "planinarenje"
   },
   {
     id: 2,
@@ -18,7 +20,9 @@ export const products: Product[] = [
     image: "/lovable-uploads/97e7a6ae-6f81-4abe-9d93-be62d05faad8.png",
     description: "GORE-TEX tehnologija štiti od elemenata, a istovremeno omogućava tijelu da diše",
     brand: "Adidas",
-    sizes: ["39", "40", "41", "42", "43", "44"]
+    sizes: ["39", "40", "41", "42", "43", "44"],
+    material: "goretex",
+    purpose: "planinarenje"
   },
   {
     id: 3,
@@ -27,7 +31,9 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80",
     description: "Patike za trčanje nude HOVR+ jastučiće za energiju, komfor i dizajn pete za stabilnost",
     brand: "Under Armour",
-    sizes: ["40", "41", "42", "43", "44", "45"]
+    sizes: ["40", "41", "42", "43", "44", "45"],
+    material: "zračni-đon",
+    purpose: "trčanje"
   },
   {
     id: 4,
@@ -36,6 +42,8 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80",
     description: "Patike za trčanje nude HOVR+ jastučiće za energiju, komfor i dizajn pete za stabilnost",
     brand: "Under Armour",
-    sizes: ["40", "41", "42", "43", "44", "45"]
+    sizes: ["40", "41", "42", "43", "44", "45"],
+    material: "zračni-đon",
+    purpose: "trčanje"
   }
 ];

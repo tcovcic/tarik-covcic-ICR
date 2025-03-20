@@ -2,9 +2,63 @@
 import { useState, useEffect } from "react";
 import { products } from "@/lib/data";
 import ProductCard from "@/components/ProductCard";
+import { 
+  Popover, 
+  PopoverContent, 
+  PopoverTrigger 
+} from "@/components/ui/popover";
+import { Check, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { 
+  Command, 
+  CommandEmpty, 
+  CommandGroup, 
+  CommandInput, 
+  CommandItem, 
+  CommandList 
+} from "@/components/ui/command";
+
+// Define material and purpose options
+const materials = [
+  { value: "memorijski-đon", label: "Obuća s memorijskim đonom" },
+  { value: "zračni-đon", label: "Obuća sa zračnim đonom" },
+  { value: "vodootporna", label: "Vodootporna obuća" },
+  { value: "goretex", label: "GORE-TEX" },
+  { value: "koža", label: "Koža" },
+  { value: "mesh", label: "Mesh" },
+];
+
+const purposes = [
+  { value: "trčanje", label: "Trčanje" },
+  { value: "planinarenje", label: "Planinarenje" },
+  { value: "nogomet", label: "Nogomet" },
+  { value: "košarka", label: "Košarka" },
+  { value: "tenis", label: "Tenis" },
+  { value: "fitness", label: "Fitness" },
+  { value: "svakodnevno", label: "Svakodnevno" },
+];
+
+// Add properties to the products data (this would normally come from the backend)
+// For now, we'll assign random materials and purposes to the products for demo
+const enhancedProducts = products.map(product => {
+  const randomMaterial = materials[Math.floor(Math.random() * materials.length)].value;
+  const randomPurpose = purposes[Math.floor(Math.random() * purposes.length)].value;
+  
+  return {
+    ...product,
+    material: randomMaterial,
+    purpose: randomPurpose
+  };
+});
 
 const Products = () => {
-  const [filter, setFilter] = useState("Svi");
+  const [brandFilter, setBrandFilter] = useState("Svi");
+  const [materialFilter, setMaterialFilter] = useState("");
+  const [purposeFilter, setPurposeFilter] = useState("");
+  const [activeFilter, setActiveFilter] = useState("Svi"); // "Svi", "Materijal", "Namjena"
+  const [materialOpen, setMaterialOpen] = useState(false);
+  const [purposeOpen, setPurposeOpen] = useState(false);
 
   // Scroll to top on page load
   useEffect(() => {
@@ -14,10 +68,49 @@ const Products = () => {
   // Get unique brands
   const brands = ["Svi", ...new Set(products.map(product => product.brand))];
 
-  // Filter products based on selected brand
-  const filteredProducts = filter === "Svi" 
-    ? products 
-    : products.filter(product => product.brand === filter);
+  // Apply filters
+  const getFilteredProducts = () => {
+    let filtered = enhancedProducts;
+    
+    // Apply brand filter
+    if (brandFilter !== "Svi") {
+      filtered = filtered.filter(product => product.brand === brandFilter);
+    }
+    
+    // Apply material filter
+    if (materialFilter) {
+      filtered = filtered.filter(product => product.material === materialFilter);
+    }
+    
+    // Apply purpose filter
+    if (purposeFilter) {
+      filtered = filtered.filter(product => product.purpose === purposeFilter);
+    }
+    
+    return filtered;
+  };
+
+  const filteredProducts = getFilteredProducts();
+
+  // Reset filters when changing main filter type
+  const handleFilterTypeChange = (type: string) => {
+    setActiveFilter(type);
+    if (type === "Svi") {
+      setMaterialFilter("");
+      setPurposeFilter("");
+    }
+  };
+
+  // Get selected material or purpose label
+  const getSelectedMaterialLabel = () => {
+    const selected = materials.find(item => item.value === materialFilter);
+    return selected ? selected.label : "Materijal";
+  };
+
+  const getSelectedPurposeLabel = () => {
+    const selected = purposes.find(item => item.value === purposeFilter);
+    return selected ? selected.label : "Namjena";
+  };
 
   return (
     <div className="min-h-screen pt-24 pb-12 animate-fade-up">
@@ -34,11 +127,11 @@ const Products = () => {
               <button
                 key={brand}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  filter === brand
+                  brandFilter === brand
                     ? "bg-sneaker text-white"
                     : "bg-gray-100 text-gray-800 hover:bg-gray-200"
                 }`}
-                onClick={() => setFilter(brand)}
+                onClick={() => setBrandFilter(brand)}
               >
                 {brand}
               </button>
@@ -46,23 +139,119 @@ const Products = () => {
           </div>
         </div>
 
-        {/* Filter chips for Material and Purpose (as in the mockup) */}
-        <div className="flex gap-2 mb-6">
-          <button 
-            className="px-4 py-2 rounded-full text-sm font-medium bg-sneaker text-white transition-colors"
+        {/* Main category filter buttons */}
+        <div className="flex gap-2 mb-6 flex-wrap">
+          {/* All button */}
+          <Button 
+            variant="outline"
+            className={cn(
+              "rounded-full", 
+              activeFilter === "Svi" 
+                ? "bg-[#8B0000] text-white hover:bg-[#8B0000]/90" 
+                : "hover:bg-gray-100 hover:text-[#8B0000] border-gray-200"
+            )}
+            onClick={() => handleFilterTypeChange("Svi")}
           >
             Svi
-          </button>
-          <button 
-            className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 transition-colors hover:bg-gray-200"
-          >
-            Materijal
-          </button>
-          <button 
-            className="px-4 py-2 rounded-full text-sm font-medium bg-gray-100 text-gray-800 transition-colors hover:bg-gray-200"
-          >
-            Namjena
-          </button>
+          </Button>
+
+          {/* Material dropdown */}
+          <Popover open={materialOpen} onOpenChange={setMaterialOpen}>
+            <PopoverTrigger asChild>
+              <Button 
+                variant="outline" 
+                className={cn(
+                  "rounded-full flex items-center gap-1",
+                  (activeFilter === "Materijal" || materialFilter) 
+                    ? "bg-[#8B0000] text-white hover:bg-[#8B0000]/90" 
+                    : "hover:bg-gray-100 hover:text-[#8B0000] border-gray-200"
+                )}
+                onClick={() => handleFilterTypeChange("Materijal")}
+              >
+                {getSelectedMaterialLabel()}
+                <ChevronDown className="h-4 w-4 opacity-50" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-64 p-0" align="start">
+              <Command>
+                <CommandInput placeholder="Pretraga..." />
+                <CommandList>
+                  <CommandEmpty>Nije pronađen materijal</CommandEmpty>
+                  <CommandGroup>
+                    {materials.map((material) => (
+                      <CommandItem
+                        key={material.value}
+                        value={material.value}
+                        onSelect={() => {
+                          setMaterialFilter(
+                            materialFilter === material.value ? "" : material.value
+                          );
+                          setMaterialOpen(false);
+                        }}
+                      >
+                        <Check
+                          className={cn(
+                            "mr-2 h-4 w-4",
+                            materialFilter === material.value ? "opacity-100" : "opacity-0"
+                          )}
+                        />
+                        {material.label}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
+
+          {/* Purpose dropdown */}
+          <Popover open={purposeOpen} onOpenChange={setPurposeOpen}>
+            <PopoverTrigger asChild>
+              <Button 
+                variant="outline" 
+                className={cn(
+                  "rounded-full flex items-center gap-1",
+                  (activeFilter === "Namjena" || purposeFilter) 
+                    ? "bg-[#8B0000] text-white hover:bg-[#8B0000]/90" 
+                    : "hover:bg-gray-100 hover:text-[#8B0000] border-gray-200"
+                )}
+                onClick={() => handleFilterTypeChange("Namjena")}
+              >
+                {getSelectedPurposeLabel()}
+                <ChevronDown className="h-4 w-4 opacity-50" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-64 p-0" align="start">
+              <Command>
+                <CommandInput placeholder="Pretraga..." />
+                <CommandList>
+                  <CommandEmpty>Nije pronađena namjena</CommandEmpty>
+                  <CommandGroup>
+                    {purposes.map((purpose) => (
+                      <CommandItem
+                        key={purpose.value}
+                        value={purpose.value}
+                        onSelect={() => {
+                          setPurposeFilter(
+                            purposeFilter === purpose.value ? "" : purpose.value
+                          );
+                          setPurposeOpen(false);
+                        }}
+                      >
+                        <Check
+                          className={cn(
+                            "mr-2 h-4 w-4",
+                            purposeFilter === purpose.value ? "opacity-100" : "opacity-0"
+                          )}
+                        />
+                        {purpose.label}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
         </div>
 
         {/* Products grid */}
