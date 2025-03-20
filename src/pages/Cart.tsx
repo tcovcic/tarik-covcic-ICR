@@ -1,18 +1,24 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "@/context/CartContext";
 import CartItem from "@/components/CartItem";
+import PaymentModal from "@/components/PaymentModal";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ShoppingBag, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { items, clearCart, totalItems, totalPrice, totalDiscount } = useCart();
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
 
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handlePaymentClick = () => {
+    setPaymentModalOpen(true);
+  };
 
   return (
     <div className="min-h-screen pt-24 pb-12 animate-fade-up">
@@ -72,7 +78,10 @@ const Cart = () => {
                   </div>
                 </div>
                 
-                <Button className="w-full bg-sneaker hover:bg-sneaker-light">
+                <Button 
+                  className="w-full bg-sneaker hover:bg-sneaker-light"
+                  onClick={handlePaymentClick}
+                >
                   <span>Nastavite s plaćanjem</span>
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -101,6 +110,13 @@ const Cart = () => {
           </div>
         )}
       </div>
+
+      {/* Payment Modal */}
+      <PaymentModal 
+        open={paymentModalOpen} 
+        onOpenChange={setPaymentModalOpen} 
+        totalAmount={totalPrice - totalDiscount} 
+      />
     </div>
   );
 };
