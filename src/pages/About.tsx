@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const About = () => {
   // Scroll to top on page load
@@ -41,11 +42,12 @@ const About = () => {
 
             <div className="mt-12">
               <Button 
-                className="bg-[#8B0000] hover:bg-[#a00000] text-white px-6 py-5 text-base"
+                className="bg-sneaker hover:bg-sneaker-light text-white px-6 py-3 rounded-md text-lg"
                 asChild
               >
                 <Link to="/proizvodi">
                   Pogledaj proizvode
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
