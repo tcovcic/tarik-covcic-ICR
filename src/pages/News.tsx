@@ -16,13 +16,13 @@ const newsSlides = [
     id: 2,
     category: "Tehnologija",
     title: "Inovativna GORE-TEX tehnologija sada u svim našim modelima za planinarenje, pružajući vrhunsku zaštitu od vode uz zadržavanje disanja materijala.",
-    image: "/lovable-uploads/cbbae409-1d83-42d0-ae22-35633f03b5a7.png"
+    image: "/lovable-uploads/d7225aff-c7a7-473e-9981-70c0d4f5ddd5.png"
   },
   {
     id: 3,
     category: "Novo u ponudi",
     title: "Predstavljamo novu liniju ultralakih patika za trčanje s revolucionarnim sistemom amortizacije za maksimalnu udobnost.",
-    image: "/lovable-uploads/cbbae409-1d83-42d0-ae22-35633f03b5a7.png"
+    image: "/lovable-uploads/97e7a6ae-6f81-4abe-9d93-be62d05faad8.png"
   }
 ];
 

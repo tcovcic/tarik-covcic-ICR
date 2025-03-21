@@ -23,7 +23,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, compact = false }) =
   return (
     <div 
       className={cn(
-        "bg-white rounded-lg overflow-hidden card-hover",
+        "bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 card-hover",
         compact ? "h-full" : "h-full"
       )}
     >
