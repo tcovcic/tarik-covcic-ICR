@@ -10,19 +10,19 @@ const newsSlides = [
     id: 1,
     category: "Izbor obuće",
     title: "Nova kolekcija zimske vodonepropusne obuće, dizajnirana da vaša stopala ostanu suha i topla čak i u najhladnijim i najvlažnijim uvjetima.",
-    image: "/lovable-uploads/12e2db8b-3706-4099-86ca-178ede173681.png"
+    image: "/lovable-uploads/cizme3.png"
   },
   {
     id: 2,
     category: "Tehnologija",
     title: "Inovativna GORE-TEX tehnologija sada u svim našim modelima za planinarenje, pružajući vrhunsku zaštitu od vode uz zadržavanje disanja materijala.",
-    image: "/lovable-uploads/d7225aff-c7a7-473e-9981-70c0d4f5ddd5.png"
+    image: "/lovable-uploads/goretex-model.png"
   },
   {
     id: 3,
     category: "Novo u ponudi",
     title: "Predstavljamo novu liniju ultralakih patika za trčanje s revolucionarnim sistemom amortizacije za maksimalnu udobnost.",
-    image: "/lovable-uploads/97e7a6ae-6f81-4abe-9d93-be62d05faad8.png"
+    image: "/lovable-uploads/ua-model.png"
   }
 ];
 

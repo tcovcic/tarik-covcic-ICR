@@ -69,7 +69,7 @@ const About = () => {
               
               <div className="relative z-10 overflow-hidden rounded-full w-[400px] h-[400px] border-4 border-white shadow-xl">
                 <img 
-                  src="/lovable-uploads/0af66b9b-a00e-4550-9fa3-88f52606bdd0.png" 
+                  src="/lovable-uploads/trcanje.png" 
                   alt="Sportska obuća u vodi" 
                   className="w-full h-full object-cover"
                 />
