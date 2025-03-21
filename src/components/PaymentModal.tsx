@@ -267,6 +267,14 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
               </div>
             </div>
 
+            {/* Dodani prikaz ukupne cijene za plaćanje */}
+            <div className="mt-6 pt-4 border-t border-gray-200">
+              <div className="flex justify-between items-center">
+                <span className="font-medium text-gray-700">Ukupno za platiti:</span>
+                <span className="text-xl font-bold text-sneaker">{totalAmount.toFixed(2)} KM</span>
+              </div>
+            </div>
+
             <Button
               className="w-full bg-sneaker hover:bg-sneaker-light"
               onClick={handlePayment}
