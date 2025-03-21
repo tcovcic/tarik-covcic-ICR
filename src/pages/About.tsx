@@ -39,22 +39,13 @@ const About = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 mt-12">
+            <div className="mt-12">
               <Button 
                 className="bg-[#8B0000] hover:bg-[#a00000] text-white px-6 py-5 text-base"
                 asChild
               >
                 <Link to="/proizvodi">
                   Pogledaj proizvode
-                </Link>
-              </Button>
-              <Button 
-                variant="outline" 
-                className="bg-transparent border-gray-300 text-gray-700 hover:bg-gray-200 px-6 py-5 text-base"
-                asChild
-              >
-                <Link to="/">
-                  Napusti stranicu
                 </Link>
               </Button>
             </div>
