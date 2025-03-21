@@ -10,6 +10,8 @@ import Navbar from "@/components/Navbar";
 import Index from "@/pages/Index";
 import Products from "@/pages/Products";
 import Cart from "@/pages/Cart";
+import About from "@/pages/About";
+import News from "@/pages/News";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,9 +29,8 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/proizvodi" element={<Products />} />
               <Route path="/korpa" element={<Cart />} />
-              {/* These routes are for the navbar links but will show NotFound for now */}
-              <Route path="/novosti" element={<NotFound />} />
-              <Route path="/o-nama" element={<NotFound />} />
+              <Route path="/novosti" element={<News />} />
+              <Route path="/o-nama" element={<About />} />
               <Route path="/profil" element={<NotFound />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
