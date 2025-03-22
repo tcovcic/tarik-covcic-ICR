@@ -12,6 +12,7 @@ import Products from "@/pages/Products";
 import Cart from "@/pages/Cart";
 import About from "@/pages/About";
 import News from "@/pages/News";
+import Login from "@/pages/Login";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,7 +32,7 @@ const App = () => (
               <Route path="/korpa" element={<Cart />} />
               <Route path="/novosti" element={<News />} />
               <Route path="/o-nama" element={<About />} />
-              <Route path="/profil" element={<NotFound />} />
+              <Route path="/profil" element={<Login />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
