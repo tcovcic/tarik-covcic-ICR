@@ -32,7 +32,7 @@ export const products: Product[] = [
     description: "Patike za trčanje nude HOVR+ jastučiće za energiju, komfor i dizajn pete za stabilnost",
     brand: "Under Armour",
     sizes: ["40", "41", "42", "43", "44", "45"],
-    material: "zračni-đon",
+    material: "memorijski-đon",
     purpose: "trčanje"
   },
   {
@@ -43,7 +43,7 @@ export const products: Product[] = [
     description: "Patike za trčanje nude HOVR+ jastučiće za energiju, komfor i dizajn pete za stabilnost",
     brand: "Under Armour",
     sizes: ["40", "41", "42", "43", "44", "45"],
-    material: "zračni-đon",
+    material: "memorijski-đon",
     purpose: "trčanje"
   },
   {
@@ -54,7 +54,7 @@ export const products: Product[] = [
     description: "Lagane patike za trčanje s reaktivnim jastučićima i mrežastim gornjim dijelom za prozračnost",
     brand: "Nike",
     sizes: ["39", "40", "41", "42", "43", "44", "45"],
-    material: "zračni-đon",
+    material: "memorijski-đon",
     purpose: "trčanje"
   },
   {
@@ -65,7 +65,7 @@ export const products: Product[] = [
     description: "Vrhunske patike za trčanje s Fresh Foam X teknologijom za maksimalnu udobnost na dugim stazama",
     brand: "New Balance",
     sizes: ["40", "41", "42", "43", "44", "45"],
-    material: "pjena",
+    material: "memorijski-đon",
     purpose: "trčanje"
   },
   {
@@ -87,7 +87,7 @@ export const products: Product[] = [
     description: "Ultra udobne patike za trčanje s META-ROCKER™ tehnologijom za glatki prijelaz od pete do prstiju",
     brand: "Hoka",
     sizes: ["39", "40", "41", "42", "43", "44"],
-    material: "pjena",
+    material: "memorijski-đon",
     purpose: "trčanje"
   },
   {
@@ -98,8 +98,8 @@ export const products: Product[] = [
     description: "Stabilne patike za trening s čvrstom petom i otpornim gornjim dijelom za intenzivne treninge",
     brand: "Nike",
     sizes: ["40", "41", "42", "43", "44", "45"],
-    material: "guma",
-    purpose: "fitnes"
+    material: "memorijski-đon",
+    purpose: "trčanje"
   },
   {
     id: 10,
@@ -109,7 +109,7 @@ export const products: Product[] = [
     description: "Patike s BOOST™ tehnologijom za nevjerojatan povrat energije i Primeknit gornjim dijelom za udobnost",
     brand: "Adidas",
     sizes: ["39", "40", "41", "42", "43", "44", "45"],
-    material: "pjena",
+    material: "memorijski-đon",
     purpose: "trčanje"
   },
   {
@@ -120,7 +120,7 @@ export const products: Product[] = [
     description: "Patike za trčanje s GEL® tehnologijom za apsorpciju udara i Dynamic DuoMax® potporom za stabilnost",
     brand: "Asics",
     sizes: ["40", "41", "42", "43", "44", "45"],
-    material: "gel",
+    material: "memorijski-đon",
     purpose: "trčanje"
   },
   {
@@ -131,7 +131,7 @@ export const products: Product[] = [
     description: "Patike za trčanje s NITRO™ pjenom za izvanrednu reaktivnost i PWRPLATE tehnologijom za stabilnost",
     brand: "Puma",
     sizes: ["40", "41", "42", "43", "44", "45"],
-    material: "pjena",
+    material: "memorijski-đon",
     purpose: "trčanje"
   },
   {
@@ -142,7 +142,7 @@ export const products: Product[] = [
     description: "Trail patike s VECTIV™ tehnologijom za maksimalan povrat energije i Surface CTRL™ gumom za trakciju",
     brand: "The North Face",
     sizes: ["40", "41", "42", "43", "44", "45"],
-    material: "guma",
+    material: "goretex",
     purpose: "planinarenje"
   },
   {
@@ -153,7 +153,7 @@ export const products: Product[] = [
     description: "Profesionalne trkačke patike s LIGHTSTRIKE PRO pjenom i ENERGYRODS tehnologijom za vrhunske rezultate",
     brand: "Adidas",
     sizes: ["40", "41", "42", "43", "44", "45"],
-    material: "pjena",
+    material: "memorijski-đon",
     purpose: "trčanje"
   }
 ];

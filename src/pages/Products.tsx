@@ -22,9 +22,9 @@ import {
 // Define material and purpose options
 const materials = [
   { value: "memorijski-đon", label: "Obuća s memorijskim đonom" },
-  { value: "zračni-đon", label: "Obuća sa zračnim đonom" },
-  { value: "vodootporna", label: "Vodootporna obuća" },
   { value: "goretex", label: "GORE-TEX" },
+  { value: "vodootporna", label: "Vodootporna obuća" },
+  { value: "zračni-đon", label: "Obuća sa zračnim đonom" },
   { value: "koža", label: "Koža" },
   { value: "mesh", label: "Mesh" },
 ];
@@ -38,19 +38,6 @@ const purposes = [
   { value: "fitness", label: "Fitness" },
   { value: "svakodnevno", label: "Svakodnevno" },
 ];
-
-// Add properties to the products data (this would normally come from the backend)
-// For now, we'll assign random materials and purposes to the products for demo
-const enhancedProducts = products.map(product => {
-  const randomMaterial = materials[Math.floor(Math.random() * materials.length)].value;
-  const randomPurpose = purposes[Math.floor(Math.random() * purposes.length)].value;
-  
-  return {
-    ...product,
-    material: randomMaterial,
-    purpose: randomPurpose
-  };
-});
 
 const Products = () => {
   const [brandFilter, setBrandFilter] = useState("Svi");
@@ -70,7 +57,7 @@ const Products = () => {
 
   // Apply filters
   const getFilteredProducts = () => {
-    let filtered = enhancedProducts;
+    let filtered = products;
     
     // Apply brand filter
     if (brandFilter !== "Svi") {
