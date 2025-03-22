@@ -41,15 +41,14 @@ const About = () => {
             </div>
 
             <div className="mt-12">
-              <Button 
-                className="bg-sneaker hover:bg-sneaker-light text-white px-6 py-3 rounded-md text-lg"
-                asChild
-              >
-                <Link to="/proizvodi">
+              <Link to="/proizvodi" className="inline-block">
+                <Button 
+                  className="bg-sneaker hover:bg-sneaker-light text-white px-6 py-3 rounded-md text-lg"
+                >
                   Pogledaj proizvode
                   <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+                </Button>
+              </Link>
             </div>
           </div>
 
