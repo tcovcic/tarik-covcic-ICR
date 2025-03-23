@@ -6,15 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import { 
-  CreditCard, 
   Lock, 
   CheckCircle2, 
   ArrowRight, 
-  Wallet, 
-  CreditCard as CreditCardIcon, 
-  DollarSign,
-  Euro,
-  CircleDot
+  CreditCard
 } from "lucide-react";
 
 interface PaymentModalProps {
@@ -78,10 +73,9 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
   };
 
   const formatCardNumber = (value: string) => {
-    // Remove non-digits and format with spaces every 4 digits
     const digits = value.replace(/\D/g, "");
     const formatted = digits.replace(/(\d{4})(?=\d)/g, "$1 ");
-    return formatted.substring(0, 19); // Limit to 16 digits + 3 spaces
+    return formatted.substring(0, 19);
   };
 
   const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -171,7 +165,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                   {paymentMethod === "paypal" && (
                     <CheckCircle2 className="absolute text-green-500 w-4 h-4 top-1 right-1" />
                   )}
-                  <Wallet className="text-blue-600 w-6 h-6" />
+                  <img src="/paypal-logo.png" alt="PayPal" className="w-10 h-6 object-contain" />
                 </div>
               </button>
               <button
@@ -185,7 +179,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                   {paymentMethod === "visa" && (
                     <CheckCircle2 className="absolute text-green-500 w-4 h-4 top-1 right-1" />
                   )}
-                  <CreditCardIcon className="text-blue-800 w-6 h-6" />
+                  <img src="/visa-logo.png" alt="Visa" className="w-10 h-6 object-contain" />
                 </div>
               </button>
               <button
@@ -199,7 +193,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                   {paymentMethod === "mastercard" && (
                     <CheckCircle2 className="absolute text-green-500 w-4 h-4 top-1 right-1" />
                   )}
-                  <CircleDot className="text-red-500 w-6 h-6" />
+                  <img src="/mastercard-logo.png" alt="Mastercard" className="w-10 h-6 object-contain" />
                 </div>
               </button>
               <button
@@ -213,7 +207,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                   {paymentMethod === "diners" && (
                     <CheckCircle2 className="absolute text-green-500 w-4 h-4 top-1 right-1" />
                   )}
-                  <DollarSign className="text-blue-600 w-6 h-6" />
+                  <img src="/diners-logo.png" alt="Diners Club" className="w-10 h-6 object-contain" />
                 </div>
               </button>
               <button
@@ -227,7 +221,7 @@ const PaymentModal: React.FC<PaymentModalProps> = ({
                   {paymentMethod === "amex" && (
                     <CheckCircle2 className="absolute text-green-500 w-4 h-4 top-1 right-1" />
                   )}
-                  <Euro className="text-blue-700 w-6 h-6" />
+                  <img src="/amex-logo.png" alt="American Express" className="w-10 h-6 object-contain" />
                 </div>
               </button>
             </div>
